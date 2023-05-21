@@ -65,7 +65,7 @@ async def put_course(course_id: int, course: CourseSchema, db: AsyncSession = De
 
             return course_up
         else:
-            raise HTTPException(detail='Course not fund!', status_code=status.HTTP_404_NOT_FOUND)
+            raise HTTPException(detail='Course not found!', status_code=status.HTTP_404_NOT_FOUND)
         
 #Delete Course
 @router.delete('/{course_id}', status_code=status.HTTP_204_NO_CONTENT)
@@ -80,4 +80,4 @@ async def delete_course(course_id: int, db: AsyncSession = Depends(get_session))
             await session.commit()
             return Response(status_code=status.HTTP_204_NO_CONTENT)
         else:
-            raise HTTPException(detail='Course not fund!', status_code=status.HTTP_404_NOT_FOUND)
+            raise HTTPException(detail='Course not found!', status_code=status.HTTP_404_NOT_FOUND)
