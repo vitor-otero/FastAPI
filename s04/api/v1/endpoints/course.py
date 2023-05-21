@@ -46,7 +46,7 @@ async def get_course(course_id: int, db: AsyncSession = Depends(get_session)):
         if course:
             return course
         else:
-            raise HTTPException(detail='Course not fund!', status_code=status.HTTP_404_NOT_FOUND)
+            raise HTTPException(detail='Course not found!', status_code=status.HTTP_404_NOT_FOUND)
 
 #PUT Course
 @router.put('/{course_id}', response_model=CourseSchema, status_code=status.HTTP_202_ACCEPTED)
